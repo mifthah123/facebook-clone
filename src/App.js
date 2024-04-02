@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Feed from "./Components/Feed/Feed";
+import Header from "./Components/Header/Header";
+import Sidebar from "./Components/Sidebar/Sidebar";
+import Widget from "./Components/Widgets/Widget";
+import Login from "./Components/Login/Login";
 
 function App() {
+  const user = 'hai';
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+     
+      {!user ? (
+        <Login />
+      ) : (
+        <>
+          <Header />
+          <div className="app-body">
+            <Sidebar />
+            <Feed />
+            <Widget />
+          </div>
+        </>
+      )}
+      
     </div>
   );
 }
